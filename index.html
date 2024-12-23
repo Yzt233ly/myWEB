@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        a {
+            text-decoration: none;
+            color: #4470b3;
+            font-weight: bold;
+        }
+        body{
+            background-image: url('./image/wallhaven-3lp2md_2560x1080.png') ; /* 替换为你的背景图片路径 */
+            background-size: cover; /* 使背景图片覆盖整个页面 */
+            background-position: center; /* 将背景图片居中 */
+            background-repeat: no-repeat; /* 防止背景图片重复 */
+            height: 100vh; /* 使背景图片高度占满整个视口 */
+        }
+        @font-face {
+            font-family: 'iconfont';
+            src: url(./font/iconfont.ttf) format('truetype');
+        }
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 60px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: absolute;
+            display: inline-block;
+        }
+        .iconfont:hover{
+            color: pink;
+        }
+        .header {
+            position: relative;
+            height: 80px;
+            background-color:  rgba(136, 206, 235, 0.9);
+            color: white;
+        }
+        .header-content {
+            display: inline-block;
+            position: relative;
+            text-indent: 50px;
+            font-size: 80px;
+            line-height: 80px; 
+        }
+        .header-content img{
+            margin-top: 5px;
+            width: 70px;
+        }
+        .header-content:hover{
+            color: pink;
+        }
+        .forum {
+            position: absolute;
+            top:10px;
+            left: 1300px;
+            height: 60px;
+            width: 400px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        .forum :hover{
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .forum-content{
+            text-align: center;
+            line-height: 60px;
+            font-size: 35px;
+        }
+        .forum-content a:hover{
+            color: blueviolet;
+        }
+        .first-pic .iconfont{
+            top: 10px;
+            right: 10px;
+        }
+        .second-pic .iconfont{
+            top: 10px;
+            right: 100px;
+        }
+        .third-pic .iconfont{
+            top: 10px;
+            right: 200px; 
+        }
+        .animepic {
+        position: relative; 
+        height: 800px; 
+        width: 555px;
+        top: 9px;
+        left: 70px;
+        background-color: rgba(255, 255, 255, 0.7); 
+        margin-top: 10px; 
+        border-radius: 20px;
+        text-align: center; 
+        border: 3px solid rgba(3, 3, 3, 0.5);;
+        }
+        .animepic img{
+            width: 550px;
+            border-radius: 5px;
+        }
+        .animepic span{
+            font-size: 30px;
+            font-weight: bold;;
+        }
+        .animepic span p{
+            font-size: 40px;
+        }
+        .animepic-text{
+            position: absolute;
+            height: 800px; 
+            width: 1200px;
+            top: 90px;
+            left: 650px;
+            background-color: rgba(255, 255, 255, 0.7); 
+            margin-top: 10px; 
+            border-radius: 20px;
+             
+        }
+        .staff{
+            position: relative;
+            top: 30px;
+            left: 30px;
+            width: 350px;
+            height: 400px;
+            background-color: rgba(136, 206, 235, 0.9);
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            border: 3px solid rgba(3, 3, 3, 0.5);
+            color: blueviolet;
+        }
+        .staff h1{
+            color: rgba(103, 214, 234, 0.8);
+            background-color: white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            
+        }
+        .bottom{
+            position: relative;
+            width: 1140px;
+            height: 300px;
+            left: 30px;
+            top: 60px;
+            border-radius: 20px;
+            background-color: rgba(128, 128, 128, 0.8);
+        }
+        .score{
+            position: relative;
+            background-color: rgba(118, 206, 91, 0.6);
+            width: 600px;
+            height: 300px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            border: skyblue 5px solid;
+            border-right: none;
+        }
+        .score h1,.score h3{
+            text-indent: 30px;
+            line-height: 40px;
+        }
+        .score p{
+            text-indent: 10px;
+            line-height: 20px;
+        }
+        .score-text{
+            font-size: 20px;
+            text-indent: 2em;
+            padding-left: 20px;
+            font-weight: bold;
+            padding-right: 20px;
+            color: rgb(96, 74, 43);
+        }
+        .last{
+            display: inline-block;
+            position: relative;
+            top: 25px;
+            left: 15px;
+        }
+        .last a:hover {
+            color: rgba(101, 91, 205, 1);
+        }
+        .introduction{
+            background-color: rgba(182, 199, 129, 0.6);
+            position: relative;
+            width: 540px;
+            height: 300px;
+            left: 600px;
+            top: -300px;
+            border-left: skyblue 5px solid;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border: skyblue 5px solid;
+            
+        }
+        .introduction h1{
+            text-indent: 30px;
+            line-height: 40px;
+        }
+        .introduction p{
+            font-size: 18px;
+            text-indent: 2em;
+            line-height: 25px;
+            font-weight: bold;
+            color: rgb(96, 74, 43);
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .video video{
+            position: relative;
+            top: -670px;
+            left: 450px;
+            width: 700px;
+            border-radius: 10px;
+            border: rgb(27, 95, 46) 5px solid;
+        }
+        .more-animation{
+            position: absolute;
+            top: 102px;
+            background-color: rgba(220, 146, 146,0.7);
+            width: 600px;
+            height: 1150px;
+            margin-left: 1900px;
+            border-radius: 15px;
+        }
+        .more-animation-content h1{
+            padding: 20px;
+        }
+        .animation-more-first{
+            position: relative;
+            width: 275px;
+            left: 15px;
+            height: 395px;
+            border-radius: 10px;
+            background-color: rgba(179, 159, 159,0.8);
+        }
+        .animation-more-first img{
+           
+            width: 275px;
+            
+            border-radius: 10px;
+        }
+        .animation-more-first h1{
+            position: relative;
+            text-align: center;
+            top: -20px;
+        }
+        .animation-more-second{
+            position: relative;
+            width: 275px;
+            left: 305px;
+            top: -395px;
+            height: 395px;
+            border-radius: 10px;
+            background-color: rgba(179, 159, 159,0.8);
+        }
+        .animation-more-second img{
+            position: relative;
+            width: 275px;
+            border-radius: 10px;
+        }
+        .animation-more-second h1{
+            position: relative;
+            text-align: center;
+        }
+        .animation-more-third{
+            position: relative;
+            top: -370px;
+            left: 15px;
+            width: 275px;
+            height: 395px;
+            border-radius: 10px;
+            background-color: rgba(179, 159, 159,0.8);
+        }
+        .animation-more-third img{
+            position: relative;
+            width: 275px;
+            border-radius: 10px;
+        }
+        .animation-more-third h1{
+            position: relative;
+            text-align: center;
+        }
+        .animation-more-fourth{
+            position: relative;
+            top: -766px;
+            left: 305px;
+            width: 275px;
+            height: 395px;
+            border-radius: 10px;
+            background-color: rgba(179, 159, 159,0.8);
+        }
+        .animation-more-fourth img{
+            position: relative;
+            width: 275px;
+            border-radius: 10px;
+        }
+        .animation-more-fourth h1{
+            position: relative;
+            text-align: center;
+        }
+        .animation-more-bottom{
+            position: relative;
+            top: -756px;
+            left: 15px;
+            width: 570px;
+            height: 220px;
+            border-radius: 10px;
+            background-color: rgba(179, 159, 159,0.8);
+        }
+        .animation-more-bottom img{
+            position: relative;
+            width: 570px;
+            height: 170px;
+            border-radius: 10px;
+        }
+        .animation-more-bottom h1{
+            position: relative;
+            text-align: center;
+        }
+        .main-bottom{
+            position: relative;
+            background-color: rgba(74, 163, 176, 0.8);
+            border-radius: 20px;
+            width: 1785px;
+            height: 330px;
+            top: 35px;
+            left: 70px;
+            
+        }
+        .main-bottom a:hover{
+            color: rgb(149, 119, 124);
+        }
+        .tuozhan{
+            width: 100px;
+            height: 330px;
+            background-color: rgba(102, 51, 153, 0.7);
+            text-align: center;
+            border-radius: 20px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            border-right:4px rgb(82, 40, 31) solid;
+        }
+        .tuozhan-content{
+            padding-top: 30px;
+            line-height: 10px;
+        }
+        .tuozhan-content p{
+            line-height: 20px;
+        }
+        .tuozhan-content img{
+            width: 60px;
+            margin: 10px;
+            width: 70px;
+        }
+        .anime-web{
+            position: relative;
+            left: 100px;
+            top: -330px;
+            width: 450px;
+            height: 330px;
+            background-color: rgba(132, 34, 114, 0.7);
+            border-right:4px rgb(82, 40, 31) solid;
+        }
+        .anime-web p{
+            font-size: 22px;
+            font-weight: bold;
+            text-indent: 10px;
+        }
+        .anime-web img{
+            margin-left: 10px;
+            width: 100px;
+        }
+        .anime-web .sakura{
+            width: 70px;
+        }
+        .anime-web .yuc{
+            width: 50px;
+        }
+        .anime-news{
+            position: relative;
+            top: -660px;
+            left: 550px;
+            width: 450px;
+            height: 330px;
+            background-color: rgba(85, 225, 83, 0.6);
+            border-right:4px rgb(82, 40, 31) solid;
+        }
+        .anime-news h1{
+            text-indent: 10px;
+        }
+        .anime-news a{
+            margin: 20px;
+            font-size: 20px;
+        }
+        .anime-news p{
+            line-height: 25px;
+        }
+        .votion{
+            position: relative;
+            top: -990px;
+            left: 1000px;
+            width: 785px;
+            height: 330px;
+            background-color: rgba(152, 18, 40, 0.6);
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .votion h2{
+            line-height: 50px;
+            text-indent: 1em;
+            font-size: 30px;
+        }
+        .votion .choose img{
+            
+            margin: 20px;
+            width: 200px;
+        }
+        .votion .choose .saber{
+            position: relative;
+            top: 0px;
+            left: 10px;
+        }
+        .votion .choose p {
+            text-indent: 105px;
+            letter-spacing: 230px;
+        }
+        .votion input[type="radio"] {
+            transform: scale(2); 
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">AnimeTrace <img src="./image/伊雷娜.gif" alt=""></div>
+        <div class="forum">
+            <div class="forum-content">
+                <a href="#">论坛</a>
+            </div>
+        </div>
+        <a href="#" class="first-pic"><span class="iconfont">&#xe61c;</span></a>
+        <a href="#" class="second-pic"><span class="iconfont">&#xe619;</span></a>
+        <a href="#" class="third-pic"><span class="iconfont">&#xe641;</span></a>
+    </div>
+    <div class="animepic">
+        <img src="./image/80900410228dcd8aac166a0418344d92512995925.jpg">
+        <span>
+            <p>超自然武装当哒当</p>
+            ダンダダン
+        </span>
+    </div>
+    <div class="animepic-text">
+        <div class="staff">
+            <h1>STAFF</h1>
+            <p>原作：龙幸伸</p>
+            <p>(少年Jump+/集英社)</p>
+            <p>导演：山代风我</p>
+            <p>编剧：濑古浩司</p>
+            <p>动画人设：恩田尚之</p>
+            <p>音乐：牛尾宪辅</p>
+            <p>动画制作:Science SARU</p>
+            <p>关智一　平野文</p>
+            <p>若山诗音　花江夏树</p>
+            <p>水树奈奈　佐仓绫音</p>
+            <p>石川界人　田中真弓</p>
+            <p>杉田智和　　中井和哉</p>
+            <p>井上喜久子　大友龙三郎</p>
+        </div>
+
+        <div class="bottom">
+    <div class="score">
+        <h1>作品评分</h1>
+        <h3>Bangumi: 7.8分&nbsp;&nbsp; Myanimelist: 8.70&nbsp;&nbsp;Anikore: 7分</h3>
+        <div class="score-text">
+            鉴赏: 《超自然武装当哒当》通过奇幻与现实交织的故事设定，展现了青春冒险与超自然力量的冲突。作品的魅力在于对人物内心世界的细腻描写和独特的战斗场面。每个角色的成长与挣扎，既有紧张刺激，也不乏温馨和幽默，使得整体气氛既紧张又轻松。超自然力量的呈现既充满想象，又通过人物情感的描绘让故事更加贴近人性，令人难以忘怀。
+        </div>
+        <p class="last">更多:<a href="https://www.bilibili.com/video/BV12n4TedEzH/?spm_id_from=333.337.search-card.all.click" target="_blank">它有可能是10月霸权番？《当哒当》究竟值不值得一看？【POP安利榜】</a></p>
+        </div>
+        <div class="introduction">
+            <h1>作品简介</h1>
+            <p>出生于灵媒师家族的女高中生·小桃<绫濑桃>，与她同年级的超自然爱好者·厄卡伦<高仓健>。
+                小桃在厄卡伦遭到班上同学欺凌时保护了他，两人以此为契机开始有了交流。“相信幽灵存在但否定外星人存在”的小桃，和“相信外星人存在但否定幽灵存在”的厄卡伦争论不休。
+                为了让对方相信外星人和幽灵的存在，小桃去了被称为UFO圣地的废弃医院，厄卡伦去了闹鬼的隧道。
+                在那里，他们遇到了无法理解的极其怪异的现象。
+                在绝境中，小桃觉醒了体内潜藏的力量，厄卡伦获得了诅咒之力，二人开始挑战接连逼近的怪异！
+                也开始了命运之恋！？
+                超能力战斗&青春故事，开幕！</p>
+        </div>
+    </div>
+    <div class="video">
+        <video src="./video/【中日字幕_OP完整版】超自然武装当哒当 OP「オトノケ」Creepy Nuts - 1.【中日字幕_OP完整版】超自然武装当哒当 OP「オトノケ」Creepy Nu(Av113245151040342,P1).mp4" controls></video>
+    </div>
+    </div>
+    <div class="more-animation">
+        <div class="more-animation-content">
+            <h1>更多动画推荐</h1>
+            <div class="animation-more-first">
+                <img src="./image/747e6f2d821af4c3a12e016a463e761c512995925.jpg">
+                <h1>Vinland Saga</h1>
+            </div>
+        </div>
+        <div class="animation-more-second">
+            <img src="./image/4ea7eb6f4572b253122881e29605d05251ae61fa.jpg">
+            <h1>86-不存在的战区</h1>
+        </div>
+        <div class="animation-more-third">
+            <img src="./image/d74c8e9863f10dad195921a1136021152250f46d.jpg">
+            <h1>平稳世代的韦驮天</h1>
+        </div>
+        <div class="animation-more-fourth">
+            <img src="./image/89cab6495ac2c179a62b12b652ce22d361e3bf20.jpg">
+            <h1>异界魔都</h1>
+        </div>
+        <div class="animation-more-bottom">
+            <img src="./image/微信图片_20241218234008.png">
+            <h1>A R C A N E</h1>
+        </div>
+    </div>
+    <div class="main-bottom">
+        <div class="tuozhan">
+            <div class="tuozhan-content">
+                    <img src="./image/更多.png">
+                    <p>拓展</p>
+                    <img src="./image/GIF_二次元_摇头_爱给网_aigei_com.gif">
+                    <img src="./image/GIF_二次元_摇头4_爱给网_aigei_com.gif">
+            </div>
+        </div>
+        <div class="anime-web">
+            <a href="https://skr.skr3.cc:666/vodtype/1/"></a>
+            <img src="./image/bilibili.png"><p><a href="https://www.bilibili.com/" target="_blank">https://www.bilibili.com/</a></p>
+            <img src="./image/acfun.png"><p><a href="https://www.anfuns.org/map.html" target="_blank">https://www.anfuns.org/map.html</a></p>
+            <img  class = "sakura" src="./image/toplogo.png"><p><a href="www.skrso.com" target="_blank">www.skrso.com</a></p>
+            <img  class = "yuc" src="./image/yuc.jpg"><p><a href="https://yuc.wiki/" target="_blank">https://yuc.wiki/</a></p>
+        </div>
+        <div class="anime-news">
+            <h1>最新资讯</h1>
+            <p><a href="https://walao-eh.com/archives/%e5%8a%a8%e7%94%bb/%e5%b7%a5%e8%97%a4%e3%83%9e%e3%82%b3%e3%83%88%e6%bc%ab%e7%94%bb%e4%bd%9c%e5%93%81%e3%80%8a%e4%b8%8d%e4%b8%ad%e7%94%a8%e7%9a%84%e5%89%8d%e8%be%88%e3%80%82%e3%80%8b2025%e5%b9%b4%e5%8a%a8%e7%94%bb.html">工藤マコト漫画作品《不中用的前辈。》2025年动画化！</a></p>
+            <p><a href="https://walao-eh.com/archives/%e5%8a%a8%e6%bc%ab%e5%b1%95/c99-%e7%ad%b9%e5%a4%87%e5%b7%a5%e4%bd%9c%e8%bf%9b%e8%a1%8c%e4%b8%ad%ef%bc%8112%e6%9c%8830%e6%97%a512%e6%9c%8831%e6%97%a5%e6%9c%9f%e9%97%b4%e4%b8%be%e5%8a%9e%ef%bc%81.html">C99 筹备工作进行中！12月30日~12月31日期间举办！</a></p>
+            <p><a href="https://walao-eh.com/archives/%e4%b8%9a%e7%95%8c%e5%91%a8%e8%be%b9/%e9%a9%ac%e5%9c%ba%e7%a4%be%e9%95%bf%e9%9a%90%e9%80%80%ef%bc%81visual-arts%e6%88%90%e4%b8%ba%e8%85%be%e8%ae%af%e6%97%97%e4%b8%8b%e5%ad%90%e5%85%ac%e5%8f%b8%ef%bc%81.html">马场社长隐退！VISUAL ARTS成为腾讯旗下子公司！</a></p>
+            <p><a href="https://walao-eh.com/archives/%e4%b8%9a%e7%95%8c%e5%91%a8%e8%be%b9/%e7%ac%ac17%e5%9b%9e%e5%a3%b0%e4%bc%98awards%e7%bb%93%e6%9e%9c%e5%87%ba%e7%82%89%ef%bc%81.html">第17回声优AWARDS结果出炉！</a></p>
+            <p><a href="https://walao-eh.com/archives/%e5%8a%a8%e6%bc%ab%e5%b1%95/aniplex-online-fest-2021%e5%b9%b47%e6%9c%884%e6%97%a5%e7%ba%bf%e4%b8%8a%e4%b8%be%e5%8a%9e%ef%bc%81.html">Aniplex Online Fest 2021年7月4日线上举办！</a></p>
+            <p><a href="https://walao-eh.com/archives/%e6%bc%ab%e7%94%bb/clamp%e6%bc%ab%e7%94%bb%e4%bd%9c%e5%93%81%e3%80%8acardcaptor-sakura-clear-card%e7%af%87%e3%80%8b2023%e5%ae%8c%e7%bb%93%ef%bc%81.html">CLAMP漫画作品《Cardcaptor Sakura Clear Card篇》2023完结！</a></p>
+        </div>
+        <div class="votion">
+            <div class="choose">
+                <h2>Choose the character you like</h2>
+                <img src="./image/微信图片_20241219232614.jpg">
+                <img src="./image/微信图片_20241219232508.png">
+                <img src="./image/明日香.jpg">
+                <p>
+                <input type="radio" name="vote">
+                <input type="radio" name="vote">
+                <input type="radio" name="vote">
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
